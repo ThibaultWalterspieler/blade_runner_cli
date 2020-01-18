@@ -1,0 +1,493 @@
+@import url(https://fonts.googleapis.com/css?family=VT323);
+
+body {
+    margin: 0;
+    font-family: "VT323", Courier;
+    color: #ecbb19;
+    background: #252525;
+    cursor: url(/assets/medias/cursor.png), auto;
+    font-size: 10px
+}
+
+* {
+    text-shadow: 0 0 1px #ecbb19, 0 0 2px #ecbb18;
+}
+
+.hide {
+    display: none;
+}
+
+.progressive-dp {
+    width: 100vw;
+    background-color: #252525;
+    position: absolute;
+    z-index: 1;
+    animation: progressiveDp 3s;
+}
+
+@keyframes progressiveDp {
+    0% {
+        height: 100vh;
+    }
+
+    100% {
+        height: 0;
+    }
+}
+
+#console #command {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 10px;
+    font-family: monospace;
+    font-size: 1.2em;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-end;
+}
+
+.loading-wrapper {
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    animation: displayNone 4s steps(1, end) forwards;
+}
+
+@keyframes displayNone {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.loading-wrapper .loading-bar {
+    height: 1rem;
+    padding: 0.2rem;
+    width: 23rem;
+    border: 3px solid;
+}
+
+.loading-wrapper .loading-bar #progress-bar {
+    height: 1rem;
+    display: inline-block;
+    background: #ecbb19;
+    animation: loading 5s;
+}
+
+@keyframes loading {
+    0% {
+        width: 2%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.screen-scanline {
+    animation: scan 10s 5s infinite;
+    background: -moz-linear-gradient(top, rgba(0, 221, 0, 0) 0%, rgba(236, 187, 25, 1) 50%, rgba(0, 221, 0, 0) 100%);
+    background: -webkit-linear-gradient(top, rgba(0, 221, 0, 0) 0%, #ecbb19 50%, rgba(0, 221, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 221, 0, 0) 0%, rgba(236, 187, 25, 1) 50%, rgba(0, 221, 0, 0) 100%);
+    display: block;
+    height: 20px;
+    opacity: 0.05;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -5%;
+    z-index: 2;
+}
+
+@keyframes scan {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes blink {
+    to {
+        opacity: 0;
+    }
+}
+
+span {
+    animation: blink 1s infinite;
+}
+
+.frame {
+    box-shadow: inset 0 0 18rem black, inset 0 0 3rem black, 0 0 10rem black;
+}
+
+.overlay {
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+}
+
+.overlay:before {
+    background: linear-gradient(#101010 50%, rgba(16, 16, 16, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.03));
+    background-size: 100% 3px, 6px 100%;
+    content: "";
+    display: block;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.overlay:after {
+    animation: flicker 0.3s infinite cubic-bezier(0.4, 0, 1, 1);
+    background: rgba(16, 16, 16, 0.2);
+    content: "";
+    display: block;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.15795;
+    }
+
+    5% {
+        opacity: 0.9456;
+    }
+
+    10% {
+        opacity: 0.3233003554;
+    }
+
+    15% {
+        opacity: 0.492;
+    }
+
+    20% {
+        opacity: 0.3902;
+    }
+
+    25% {
+        opacity: 0.89209;
+    }
+
+    30% {
+        opacity: 0.199;
+    }
+
+    35% {
+        opacity: 0.001;
+    }
+
+    40% {
+        opacity: 0.801929;
+    }
+
+    45% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.99338;
+    }
+
+    55% {
+        opacity: 0.39201;
+    }
+
+    60% {
+        opacity: 0.9383;
+    }
+
+    65% {
+        opacity: 0.86615;
+    }
+
+    70% {
+        opacity: 0.68695;
+    }
+
+    75% {
+        opacity: 0.55749;
+    }
+
+    80% {
+        opacity: 0.96984;
+    }
+
+    85% {
+        opacity: 0.0361;
+    }
+
+    90% {
+        opacity: 0.24467;
+    }
+
+    95% {
+        opacity: 0.08351;
+    }
+
+    100% {
+        opacity: 0.39392;
+    }
+}
+
+.clearfix {
+    overflow: auto;
+    zoom: 1;
+}
+
+.content {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.content .extend-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content .extend-wrapper .extend-logo {
+    top: 1rem;
+    right: 1rem;
+    position: absolute;
+    height: 1.8rem;
+    fill: #ecbb19;
+    cursor: pointer;
+}
+
+.content .extend-wrapper .extend-logo:hover {
+    scale: 2;
+}
+
+.wrapper {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+.wrapper span {
+    animation: blink 1s infinite;
+}
+
+.wrapper .header-wrapper,
+.wrapper .info-cli-wrapper,
+.wrapper .time-wrapper,
+.wrapper .about-wrapper {
+    text-shadow: 0 0 1px #ecbb19, 0 0 2px #ecbb19;
+}
+
+.wrapper .header-wrapper {
+    display: flex;
+}
+
+.wrapper .header-wrapper .main-logo {
+    fill: #ecbb19;
+    height: 15vh;
+    margin: 1rem;
+}
+
+.loading-logo {
+    fill: #ecbb19;
+    height: 15vh;
+    margin: 1rem;
+}
+
+.wrapper .info-cli-wrapper {
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.wrapper .time-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    border: 3px solid #ecbb19;
+    padding: 1rem;
+    font-size: 1.5rem;
+
+}
+
+.wrapper .about-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+    border: 4px solid #ecbb19;
+}
+
+.wrapper .project-preview-wrapper {
+    display: flex;
+    margin: 1rem;
+}
+
+.wrapper .project-preview-wrapper .project-preview {
+    width: 50%;
+    border: 4px solid #ecbb19;
+    overflow: hidden;
+}
+
+.wrapper .project-preview-wrapper .project-preview:first-of-type {
+    margin-right: 20px;
+}
+
+.wrapper .project-preview-wrapper .project-preview img {
+    height: 250px;
+}
+
+.wrapper .project-preview-wrapper .project-preview .content-wrapper {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .project-preview-wrapper .project-preview .content-wrapper .picture-preview:hover {
+    animation: shake 1600ms ease-in-out infinite alternate;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translate(-0.41px, 0);
+    }
+
+    10% {
+        transform: translate(0.91px, 1px);
+    }
+
+    30% {
+        transform: translate(-1px, 0.5px);
+    }
+
+    35% {
+        transform: translate(1px, -0.5px);
+    }
+
+    50% {
+        transform: translate(-0.25px, 1px);
+    }
+}
+
+.wrapper .project-preview-wrapper .project-preview .project-preview-header {
+    background: #ecbb19;
+    color: #252525;
+}
+
+.wrapper .project-preview-wrapper .sub-wrapper {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-top: 4px solid #ecbb19;
+    text-align: center;
+}
+
+.wrapper .project-preview-wrapper .sub-wrapper :hover {
+    box-shadow: 0 0 3px #ecbb19, 0 0 3px #ecbb19;
+    background: #ecbb19;
+    color: #252525;
+    cursor: pointer;
+}
+
+
+
+::-moz-selection {
+    background: #ecbb19;
+    color: #252525;
+}
+
+::selection {
+    background: #ecbb19;
+    color: #252525;
+}
+
+/* HEADER */
+
+.company-name {
+    font-size: 2.3rem;
+}
+
+.software-name {
+    font-size: 1.5rem;
+}
+
+.security-warning {
+    font-size: 1.5rem;
+}
+
+.control-tab-wrapper {
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: flex-start;
+    margin: 1rem;
+}
+
+.tab {
+    border: .2rem solid;
+    padding: .1rem .7rem;
+    margin: 0 1rem 0 0;
+}
+
+.tab:hover {
+    background-color: #ecbb19;
+    color: #252525;
+}
+
+.tab-body-wrapper {
+    margin: 0 1rem;
+}
+
+.tab-header {
+    font-size: 1.7rem;
+}
+
+.replicant-table {
+    font-size: 1.5rem;
+}
+
+.replicant-table th,
+td {
+    border: 2px solid;
+    padding: 0.5rem;
+}
+
+.offline {
+    animation: blink 1s infinite;
+}
+
+
+/* shadow elements */
+
+rect {
+    box-shadow: 0 0 2px #ecbb19, 0 0 2px #ecbb19;
+}
