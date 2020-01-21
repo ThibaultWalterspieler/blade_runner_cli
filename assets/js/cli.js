@@ -1,17 +1,27 @@
-    this.browser = window.navigator.appVersion;
-    console.log('hello');
+window.onload = (event) => {
+
+
+    let modal = document.querySelector('.warning-modal')
+    let wrapper = document.querySelector('.wrapper')
+    let loader = document.querySelector('.loading-wrapper')
+
+    wrapper.classList.add('hide')
+
+    function toggleModal() {
+        wrapper.classList.remove('hide')
+        wrapper.classList.add('scroll-dp')
+        modal.classList.add('hide')
+    }
+
+    modal.addEventListener('click', toggleModal, false)
+
+
 
     setTimeout(function () {
-        document.getElementById('wrapper-id').classList.remove('hide');
+        loader.classList.add('hide')
+        modal.classList.remove('hide')
         document.getElementById('transition').classList.add('transition-dp');
-        // document.querySelector('wrapper').style.transform = ""
-        anime({
-            targets: '.wrapper',
-            easing: 'linear',
-            height: ['0vh', '100vh'],
-            duration: 4800
-        });
-    }, 3990);
+    }, 3000);
 
     const consoleWrapper = document.querySelector('#command');
     const commandLine = [];
@@ -41,7 +51,7 @@
     };
     setInterval(() => {
         const date = new Date();
-        const formatedDate = date.toLocaleDateString("en-us", optionMedDate);
+        const formatedDate = date.toLocaleDateString('en-us', optionMedDate);
         const formatedTime = date.toLocaleTimeString('en-US');
         dateWrapper.innerHTML = formatedDate;
         timeWrapper.innerHTML = formatedTime;
@@ -86,39 +96,41 @@
 
     ]
 
-    setInterval(() => {
-        replicantsArray.forEach(replicantsData => {
-            replicantsData.current_location++;
-        });
-    }, 1);
+    // setInterval(() => {
+    //     replicantsArray.forEach(replicantsData => {
+    //         replicantsData.current_location++;
+    //     });
+    // }, 1);
 
 
 
-    // Generate head
-    function generateTableHead(table, data) {
-        let thead = table.createTHead();
-        let row = thead.insertRow();
-        for (let key of data) {
-            let th = document.createElement("th");
-            let text = document.createTextNode(key);
-            th.appendChild(text);
-            row.appendChild(th);
-        }
-    }
+    // // Generate head
+    // function generateTableHead(table, data) {
+    //     let thead = table.createTHead();
+    //     let row = thead.insertRow();
+    //     for (let key of data) {
+    //         let th = document.createElement('th');
+    //         let text = document.createTextNode(key);
+    //         th.appendChild(text);
+    //         row.appendChild(th);
+    //     }
+    // }
 
-    // Generate row
-    function generateTable(table, data) {
-        for (let element of data) {
-            let row = table.insertRow();
-            for (key in element) {
-                let cell = row.insertCell();
-                let text = document.createTextNode(element[key]);
-                cell.appendChild(text);
-            }
-        }
-    }
+    // // Generate row
+    // function generateTable(table, data) {
+    //     for (let element of data) {
+    //         let row = table.insertRow();
+    //         for (key in element) {
+    //             let cell = row.insertCell();
+    //             let text = document.createTextNode(element[key]);
+    //             cell.appendChild(text);
+    //         }
+    //     }
+    // }
 
-    let table = document.querySelector(".replicant-table");
-    let data = Object.keys(replicantsArray[0]);
-    generateTableHead(table, data);
-    generateTable(table, replicantsArray);
+    // let table = document.querySelector('.replicant-table');
+    // let data = Object.keys(replicantsArray[0]);
+    // generateTableHead(table, data);
+    // generateTable(table, replicantsArray);
+
+}
