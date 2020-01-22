@@ -3,6 +3,8 @@ window.addEventListener('load', (event) => {
     setTimeout(() => {
         const sceneContainer = document.querySelector('.replicant3d-wrapper')
         const boundingClientRect = sceneContainer.getBoundingClientRect()
+        console.log(boundingClientRect);
+
         const sceneWidth = boundingClientRect.width
         const sceneHeight = boundingClientRect.height
 
@@ -18,7 +20,7 @@ window.addEventListener('load', (event) => {
         // Set scene backgorund
         scene.background = new THREE.Color(0x252525)
         // Set light
-        var light = new THREE.AmbientLight(0x404040)
+        let light = new THREE.AmbientLight(0x404040)
         // Add light on scene 
         scene.add(light)
 

@@ -1,136 +1,95 @@
 window.onload = (event) => {
-
-
-    let modal = document.querySelector('.warning-modal')
     let wrapper = document.querySelector('.wrapper')
+    // DOM : Hide wrapper 
+    wrapper.classList.add('hideOp')
+    let modal = document.querySelector('.warning-modal')
     let loader = document.querySelector('.loading-wrapper')
 
-    wrapper.classList.add('hide')
+
 
     function toggleModal() {
-        wrapper.classList.remove('hide')
+        wrapper.classList.remove('hideOp')
         wrapper.classList.add('scroll-dp')
-        modal.classList.add('hide')
+        modal.classList.add('hideDp')
     }
 
     modal.addEventListener('click', toggleModal, false)
 
 
-
     setTimeout(function () {
-        loader.classList.add('hide')
-        modal.classList.remove('hide')
+        loader.classList.add('hideOp')
+        modal.classList.remove('hideDp')
         document.getElementById('transition').classList.add('transition-dp');
     }, 3000);
 
-    const consoleWrapper = document.querySelector('#command');
-    const commandLine = [];
-
-    const cli = document.createElement('div');
-
-
-    function addLine() {
-        for (let index = 0; index < commandLine.length; index++) {
-            consoleWrapper.append(commandLine[index]);
-        }
-    }
-
-    setTimeout(() => {
-        addLine();
-    }, 300);
-
-
 
     // Get current date | time
-    const timeWrapper = document.querySelector('.hours');
-    const dateWrapper = document.querySelector('.day');
+    const timeWrapper = document.querySelector('.hours')
+    const dateWrapper = document.querySelector('.day')
     const optionMedDate = {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
     };
     setInterval(() => {
-        const date = new Date();
-        const formatedDate = date.toLocaleDateString('en-us', optionMedDate);
-        const formatedTime = date.toLocaleTimeString('en-US');
-        dateWrapper.innerHTML = formatedDate;
-        timeWrapper.innerHTML = formatedTime;
-    }, 1);
-
-    const replicantsArray = [{
-            nexus_rep_sn: 'N6MAA10816',
-            nexus_first_name: 'Roy',
-            nexus_last_name: 'Batty',
-            physical_class: 'physical-A',
-            mental_class: 'mental-A',
-            current_status: 'offline',
-            current_location: '37.771580, -122.435528'
-        },
-        {
-            nexus_rep_sn: 'N6FAB21416',
-            nexus_first_name: 'Priss',
-            nexus_last_name: 'Stratton',
-            physical_class: 'physical-A',
-            mental_class: 'mental-B',
-            current_status: 'offline',
-            current_location: '37.771580, -122.435528'
-        },
-        {
-            nexus_rep_sn: 'N6MAC41717',
-            nexus_first_name: 'Leon',
-            nexus_last_name: 'Kowalski',
-            physical_class: 'physical-A',
-            mental_class: 'mental-C',
-            current_status: 'offline',
-            current_location: '37.771580, -122.435528'
-        },
-        {
-            nexus_rep_sn: '*brokedData',
-            nexus_first_name: '*brokedData',
-            nexus_last_name: 'Hodge',
-            physical_class: '*brokedData',
-            mental_class: '*brokedData',
-            current_status: 'offline',
-            current_location: 'position unknown'
-        },
-
-    ]
-
-    // setInterval(() => {
-    //     replicantsArray.forEach(replicantsData => {
-    //         replicantsData.current_location++;
-    //     });
-    // }, 1);
+        const date = new Date()
+        const formatedDate = date.toLocaleDateString('en-us', optionMedDate)
+        const formatedTime = date.toLocaleTimeString('en-US')
+        dateWrapper.innerHTML = formatedDate
+        timeWrapper.innerHTML = formatedTime
+    }, 1)
 
 
+    // CLI CONSOLE 
 
-    // // Generate head
-    // function generateTableHead(table, data) {
-    //     let thead = table.createTHead();
-    //     let row = thead.insertRow();
-    //     for (let key of data) {
-    //         let th = document.createElement('th');
-    //         let text = document.createTextNode(key);
-    //         th.appendChild(text);
-    //         row.appendChild(th);
-    //     }
-    // }
 
-    // // Generate row
-    // function generateTable(table, data) {
-    //     for (let element of data) {
-    //         let row = table.insertRow();
-    //         for (key in element) {
-    //             let cell = row.insertCell();
-    //             let text = document.createTextNode(element[key]);
-    //             cell.appendChild(text);
-    //         }
-    //     }
-    // }
+    cliInput = document.querySelector('.console-input');
+    resultWrapper = document.querySelector('.results-wrapper')
+    cliCursor = document.querySelector('.input-cursor')
 
-    // let table = document.querySelector('.replicant-table');
-    // let data = Object.keys(replicantsArray[0]);
-    // generateTableHead(table, data);
-    // generateTable(table, replicantsArray);
+
+    function listenInputCli() {
+        let inputValue = cliInput.value
+        cliCursor.classList.add('hideDp')
+        return inputValue
+    }
+
+    cliInput.addEventListener('input', () => {
+        listenInputCli()
+    })
+
+
+    cliInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            let input = listenInputCli()
+            if (input === 'reset --force rep1 hand') {
+                // reset input 
+                cliInput.value = ""
+                // Inject result 
+                let commandHistory = document.createElement("div")
+                commandHistory.className = "result-line"
+                let resultLine = document.createElement("div")
+                resultLine.className = "result-line"
+                resultWrapper.appendChild(commandHistory, resultLine)
+                resultWrapper.appendChild(resultLine)
+                commandHistory.appendChild(document.createTextNode('$nwalace > ' + input))
+                resultLine.appendChild(document.createTextNode('エラ$_error : Could not connect to replicant_N6MAA10816'))
+            } else {
+                // reset input 
+                cliInput.value = ""
+                // Inject result 
+                let commandHistory = document.createElement("div")
+                commandHistory.className = "result-line"
+                let resultLine = document.createElement("div")
+                resultLine.className = "result-line"
+                resultWrapper.appendChild(commandHistory, resultLine)
+                resultWrapper.appendChild(resultLine)
+                commandHistory.appendChild(document.createTextNode('$nwalace > ' + input))
+                resultLine.appendChild(document.createTextNode('エラ$_error^'))
+            }
+        }
+    })
+
+
 
 }

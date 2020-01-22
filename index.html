@@ -13,7 +13,7 @@
     <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"> </script>
     <div class="frame"></div>
     <div class="overlay"></div>
-    <div class="screen-scanline"></div>
+    <!-- <div class="screen-scanline"></div> -->
     <div class="loading-wrapper">
         <div class="loading-loading-wrapper">
             <svg class="loading-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@
     </div>
 
     <div id="transition"></div>
-    <div class="warning-modal hide blink">
+    <div class="warning-modal hideDp blink">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h3 class="blink-text">⚠ WARNING : deviance detected ⚠</h3>
@@ -189,22 +189,23 @@
                         <div>
                             nexus_rep_sn: N6MAA10816
                         </div>
-                        <div>
+                        <div class="hand-status">
                             ⚠ right_hand : critical damage
                         </div>
                     </div>
-                    <!-- Contain 3d model Three.js -->
+                    <!-- <!-- Contain 3d model Three.js -->
                 </div>
                 <div class="replicant-info-wrapper">
+                    <div class="console-title">Replicant control console :</div>
+                    <div class="console-wrapper">
+                        <div class="results-wrapper"></div>
+                        <div class="input-wrapper">
+                            <div class="user-info-input">$nwalace ></div>
+                            <div class="input-cursor"></div>
+                            <input class="console-input" spellcheck="false" type="text">
+                        </div>
+                    </div>
                     <table class="replicant-table">
-                        <!-- 
-                        nexus_rep_sn: 'N6MAA10816',
-                        nexus_first_name: 'Roy',
-                        nexus_last_name: 'Batty',
-                        physical_class: 'physical-A',
-                        mental_class: 'mental-A',
-                        current_status: 'offline',
-                        current_location: '37.771580, -122.435528' -->
                         <tr>
                             <th>nexus_rep_sn</th>
                             <td>N6MAA10816</td>
@@ -221,11 +222,6 @@
                             <th>deviance_probability</th>
                             <td>high</td>
                         </tr>
-                        <tr>
-                            <td>
-                                <input type="text" name="" id="">
-                            </td>
-                        </tr>
                     </table>
                 </div>
             </div>
@@ -234,8 +230,8 @@
             <div class="error-message error2">エラ$_error`</div>
         </div>
     </div>
-    <script src="assets/js/3d_replicant.js"></script>
     <script src="assets/js/cli.js"></script>
+    <script src="assets/js/3d_replicant.js"></script>
 </body>
 
 </html>
