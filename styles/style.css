@@ -1,7 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=VT323);
 
-
-
 body {
     margin: 0;
     font-family: "VT323", Courier;
@@ -13,24 +11,6 @@ body {
 
 * {
     text-shadow: 0 0 1px #ecbb19, 0 0 2px #ecbb18;
-}
-
-.progressive-dp {
-    width: 100vw;
-    background-color: #252525;
-    position: absolute;
-    z-index: 1;
-    animation: progressiveDp 3s;
-}
-
-@keyfras progressiveDp {
-    0% {
-        height: 100vh;
-    }
-
-    100% {
-        height: 0;
-    }
 }
 
 #console #command {
@@ -74,23 +54,14 @@ body {
     animation: loading 5s;
 }
 
-@keyframes loading {
-    0% {
-        width: 2%;
-    }
-
-    100% {
-        width: 100%;
-    }
-}
-
 .screen-scanline {
-    animation: scan 10s 5s infinite;
+    /* animation: scan 10s 5s infinite; */
     background: -moz-linear-gradient(top, rgba(0, 221, 0, 0) 0%, rgba(236, 187, 25, 1) 50%, rgba(0, 221, 0, 0) 100%);
     background: -webkit-linear-gradient(top, rgba(0, 221, 0, 0) 0%, #ecbb19 50%, rgba(0, 221, 0, 0) 100%);
     background: linear-gradient(to bottom, rgba(0, 221, 0, 0) 0%, rgba(236, 187, 25, 1) 50%, rgba(0, 221, 0, 0) 100%);
     display: block;
-    height: 20px;
+    /* height: 20px; */
+    /* height: 100%; */
     opacity: 0.05;
     position: absolute;
     left: 0;
@@ -146,91 +117,6 @@ span {
     z-index: 2;
 }
 
-@keyframes flicker {
-    0% {
-        opacity: 0.15795;
-    }
-
-    5% {
-        opacity: 0.9456;
-    }
-
-    10% {
-        opacity: 0.3233003554;
-    }
-
-    15% {
-        opacity: 0.492;
-    }
-
-    20% {
-        opacity: 0.3902;
-    }
-
-    25% {
-        opacity: 0.89209;
-    }
-
-    30% {
-        opacity: 0.199;
-    }
-
-    35% {
-        opacity: 0.001;
-    }
-
-    40% {
-        opacity: 0.801929;
-    }
-
-    45% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.99338;
-    }
-
-    55% {
-        opacity: 0.39201;
-    }
-
-    60% {
-        opacity: 0.9383;
-    }
-
-    65% {
-        opacity: 0.86615;
-    }
-
-    70% {
-        opacity: 0.68695;
-    }
-
-    75% {
-        opacity: 0.55749;
-    }
-
-    80% {
-        opacity: 0.96984;
-    }
-
-    85% {
-        opacity: 0.0361;
-    }
-
-    90% {
-        opacity: 0.24467;
-    }
-
-    95% {
-        opacity: 0.08351;
-    }
-
-    100% {
-        opacity: 0.39392;
-    }
-}
 
 .clearfix {
     overflow: auto;
@@ -349,30 +235,6 @@ span {
 
 .wrapper .project-preview-wrapper .project-preview .content-wrapper .picture-preview:hover {
     animation: shake 1600ms ease-in-out infinite alternate;
-}
-
-@keyframes shake {
-
-    0%,
-    100% {
-        transform: translate(-0.41px, 0);
-    }
-
-    10% {
-        transform: translate(0.91px, 1px);
-    }
-
-    30% {
-        transform: translate(-1px, 0.5px);
-    }
-
-    35% {
-        transform: translate(1px, -0.5px);
-    }
-
-    50% {
-        transform: translate(-0.25px, 1px);
-    }
 }
 
 .wrapper .project-preview-wrapper .project-preview .project-preview-header {
@@ -586,12 +448,26 @@ rect {
     animation: blink 1.4s infinite;
 }
 
-/* ANIMATION */
+/* -- ANIMATION -- */
 
 
 .scroll-dp {
     animation: scroll-dp 5s 1;
 }
+
+/* Loading animation */
+
+@keyframes loading {
+    0% {
+        width: 2%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* Scroll animation */
 
 @keyframes scroll-dp {
     0% {
@@ -603,6 +479,7 @@ rect {
     }
 }
 
+/* Scanline animation */
 
 @keyframes scan {
     0% {
@@ -614,6 +491,8 @@ rect {
     }
 }
 
+/* Blink animation */
+
 @keyframes blink {
     from {
         opacity: 1;
@@ -624,6 +503,128 @@ rect {
     }
 }
 
+/* Random flicker animation */
+
+@keyframes flicker {
+    0% {
+        opacity: 0.15795;
+    }
+
+    5% {
+        opacity: 0.9456;
+    }
+
+    10% {
+        opacity: 0.3233003554;
+    }
+
+    15% {
+        opacity: 0.492;
+    }
+
+    20% {
+        opacity: 0.3902;
+    }
+
+    25% {
+        opacity: 0.89209;
+    }
+
+    30% {
+        opacity: 0.199;
+    }
+
+    35% {
+        opacity: 0.001;
+    }
+
+    40% {
+        opacity: 0.801929;
+    }
+
+    45% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.93338;
+    }
+
+    55% {
+        opacity: 0.32201;
+    }
+
+    60% {
+        opacity: 0.9183;
+    }
+
+    65% {
+        opacity: 0.96215;
+    }
+
+    70% {
+        opacity: 0.48695;
+    }
+
+    75% {
+        opacity: 0.75749;
+    }
+
+    80% {
+        opacity: 0.16984;
+    }
+
+    85% {
+        opacity: 0.9061;
+    }
+
+    90% {
+        opacity: 0.21467;
+    }
+
+    95% {
+        opacity: 0.07351;
+    }
+
+    100% {
+        opacity: 0.3820;
+    }
+}
+
+@keyframes progressiveDp {
+    0% {
+        height: 100vh;
+    }
+
+    100% {
+        height: 0;
+    }
+}
+
+/* Shaking animation  */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translate(-0.41px, 0);
+    }
+
+    10% {
+        transform: translate(0.91px, 1px);
+    }
+
+    30% {
+        transform: translate(-1px, 0.5px);
+    }
+
+    35% {
+        transform: translate(1px, -0.5px);
+    }
+
+    50% {
+        transform: translate(-0.25px, 1px);
+    }
+}
 
 /* --- Terminal ---  */
 .console-wrapper {
