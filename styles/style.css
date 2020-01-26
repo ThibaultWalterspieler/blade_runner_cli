@@ -5,29 +5,15 @@ body {
     font-family: "VT323", Courier;
     color: #ecbb19;
     background: #252525;
-    cursor: url(/assets/medias/cursor.png), auto;
-    font-size: 10px
+    /* cursor: url(../assets/cursors/cursor.png), auto; */
+    font-size: 10px;
+    overflow: hidden;
 }
 
 * {
     text-shadow: 0 0 1px #ecbb19, 0 0 2px #ecbb18;
 }
 
-#console #command {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    box-sizing: border-box;
-    padding: 10px;
-    font-family: monospace;
-    font-size: 1.2em;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-end;
-}
 
 .loading-wrapper {
     position: absolute;
@@ -55,12 +41,12 @@ body {
 }
 
 .screen-scanline {
-    /* animation: scan 10s 5s infinite; */
+    animation: scan 10s 5s infinite;
     background: -moz-linear-gradient(top, rgba(0, 221, 0, 0) 0%, rgba(236, 187, 25, 1) 50%, rgba(0, 221, 0, 0) 100%);
     background: -webkit-linear-gradient(top, rgba(0, 221, 0, 0) 0%, #ecbb19 50%, rgba(0, 221, 0, 0) 100%);
     background: linear-gradient(to bottom, rgba(0, 221, 0, 0) 0%, rgba(236, 187, 25, 1) 50%, rgba(0, 221, 0, 0) 100%);
     display: block;
-    /* height: 20px; */
+    height: 20px;
     /* height: 100%; */
     opacity: 0.05;
     position: absolute;
@@ -304,19 +290,6 @@ span {
     margin: 0 1rem;
 }
 
-
-
-.replicant-table {
-    height: 30%;
-    font-size: 1.5rem;
-}
-
-.replicant-table th,
-td {
-    border: 2px solid;
-    padding: 0.5rem;
-}
-
 .offline {
     animation: blink 1s infinite;
 }
@@ -405,6 +378,12 @@ rect {
     cursor: pointer;
 }
 
+.view-button-custom-hover {
+    background-color: #252525;
+    color: #ecbb18;
+    cursor: pointer;
+}
+
 
 /* Errror messages */
 
@@ -444,7 +423,7 @@ rect {
     width: 110%;
 }
 
-.hand-status {
+.replicant-status {
     animation: blink 1.4s infinite;
 }
 
@@ -499,6 +478,20 @@ rect {
     }
 
     to {
+        opacity: 0;
+    }
+}
+
+@keyframes linearBlink {
+    0% {
+        opacity: 1;
+    }
+
+    89% {
+        opacity: 1;
+    }
+
+    100% {
         opacity: 0;
     }
 }
@@ -629,8 +622,12 @@ rect {
 /* --- Terminal ---  */
 .console-wrapper {
     width: 100%;
-    height: 65%;
+    height: 100%;
     overflow: scroll;
+}
+
+.console-subtitle {
+    font-size: 1.3rem;
 }
 
 .console-input {
@@ -640,7 +637,6 @@ rect {
     float: left;
     font-size: 1.2em;
     position: relative;
-    width: 80%;
     font-family: "VT323", Courier;
     color: #ecbb19;
     z-index: 10;
@@ -650,10 +646,6 @@ rect {
 .input-wrapper {
     display: flex;
     font-size: 1.5rem;
-}
-
-.user-info-input {
-    width: 7vw;
 }
 
 .input-cursor {
@@ -676,6 +668,22 @@ rect {
 
 .console-title {
     font-size: 1.7rem;
+}
+
+/* Custom terminal scroller */
+
+.console-wrapper::-webkit-scrollbar {
+    width: 1em;
+}
+
+.console-wrappe::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #ecbb18;
+    box-shadow: inset 0 0 6px #ecbb18;
+}
+
+.console-wrappe::-webkit-scrollbar-thumb {
+    background-color: #ecbb18;
+    outline: 1px solid #ecbb18;
 }
 
 /* Global styles  */
