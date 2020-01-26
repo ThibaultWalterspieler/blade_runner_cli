@@ -3,8 +3,6 @@ window.addEventListener('load', (event) => {
     setTimeout(() => {
         const sceneContainer = document.querySelector('.replicant3d-wrapper')
         const boundingClientRect = sceneContainer.getBoundingClientRect()
-        console.log(boundingClientRect);
-
         const sceneWidth = boundingClientRect.width
         const sceneHeight = boundingClientRect.height
 
@@ -36,7 +34,6 @@ window.addEventListener('load', (event) => {
             replicantScene.position.x += (gltf.scene.position.x - center.x)
             replicantScene.position.y += (gltf.scene.position.y - center.y)
             replicantScene.position.z += (gltf.scene.position.z - center.z)
-            console.log(replicantScene)
 
             body = replicantScene.children[0]
             hand = replicantScene.children[1]
