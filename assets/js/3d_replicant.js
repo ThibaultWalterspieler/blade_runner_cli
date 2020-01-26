@@ -28,7 +28,7 @@ window.addEventListener('load', (event) => {
 
         let loader = new THREE.GLTFLoader()
         let rep1
-        loader.load('./assets/replicant.glb', function (gltf) {
+        loader.load('./assets/models_3d/replicant.glb', function (gltf) {
             let replicantScene = gltf.scene
             const box = new THREE.Box3().setFromObject(replicantScene)
             const center = box.getCenter(new THREE.Vector3())
@@ -62,7 +62,7 @@ window.addEventListener('load', (event) => {
             function animate() {
                 requestAnimationFrame(animate)
                 // Replicatant rotation 
-                replicantScene.rotation.y += 0.009
+                replicantScene.rotation.y += .01
                 // Glitch hand 
                 setInterval(() => {
                     hand.visible = false
