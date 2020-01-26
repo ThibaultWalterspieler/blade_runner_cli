@@ -198,7 +198,15 @@ window.onload = (event) => {
                     injectCliResult(
                         `エラ$_error エラ$_error エラ$_e_1rror エラ$_error
                         `, input)
-                    replicantScene.rotation.y = 400
+                    // replicantScene.rotation.y = 400
+                    function animate() {
+                        requestAnimationFrame(animate)
+                        // Replicatant rotation 
+                        replicantScene.rotation.y += 400
+                        replicantScene.rotation.z += 400
+                        replicantScene.rotation.x += 400
+                    }
+                    animate()
                 },
 
                 'default': () => {
@@ -273,8 +281,7 @@ window.onload = (event) => {
             function animate() {
                 requestAnimationFrame(animate)
                 // Replicatant rotation 
-                // replicantScene.rotation.y += .01
-                // replicantScene.rotation.y += rotationSpeed
+                replicantScene.rotation.y += .01
                 // Glitch hand 
                 setInterval(() => {
                     hand.visible = false
@@ -282,7 +289,6 @@ window.onload = (event) => {
                         hand.visible = true
                     }, 2000)
                 }, 1000)
-                //  hand.rotation.y += 0.01 
                 renderer.render(scene, camera)
             }
             animate()
