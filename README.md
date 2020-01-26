@@ -1,6 +1,6 @@
 # Blade Runner CLI
 
-Due to browsers' same origin policy security restrictions ([CORS)](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)) coming from Three.js , loading my project from a file system will fail with a security exception.
+Due to browsers' same origin policy security restrictions ([CORS](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)) coming from Three.js , loading my project from a file system will fail with a security exception.
 
 There are two ways to solve this:
 
