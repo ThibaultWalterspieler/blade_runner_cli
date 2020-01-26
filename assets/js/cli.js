@@ -1,4 +1,23 @@
 window.onload = (event) => {
+    console.log([
+        `                            `,
+        `    ___  __   ___   ___  ____`,
+        `   / _ )/ /  / _ | / _  / __/`,
+        `  / _  / /__/ __ |/ // / _/`,
+        ` /____/____/_/ |_/____/___/`,
+        `                             `,
+        `    ___   __  __ _  __ _  __ ____ ___`,
+        `   / _ / / / / // |/ // |/ // __// _`,
+        `  / , _// /_/ //    //    // _/ / , _/`,
+        ` /_/|_| _____//_/|_//_/|_//___//_/|_|`,
+        ``,
+    ].join('\n'))
+    console.log('%c CLI 0.1 by Thibault Walterspieler', 'color: #ecbb19');
+
+
+
+    //  CLI VERSION 0.1 by Thibault Walterspieler
+
     let body = document.querySelector('body')
     let wrapper = document.querySelector('.wrapper')
     // DOM : Hide wrapper 
