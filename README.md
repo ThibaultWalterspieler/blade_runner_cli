@@ -15,3 +15,6 @@ file:///index.html
 If you use option 2, be aware that you may open yourself to some vulnerabilities if using the same browser for a regular web surfing. You may want to create a separate browser profile / shortcut used just for local development to be safe. Let's go over each option in turn.
 
 For more information, read [Three.js documentation](https://threejs.org/docs/index.html#manual/en/introduction/How-to-run-things-locally).
+
+
+[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
